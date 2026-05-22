@@ -42,6 +42,7 @@ export default function TanyaAI() {
           <a href="/" className="hover:text-yellow-400">Beranda</a>
           <a href="/materi" className="hover:text-yellow-400">Materi</a>
           <a href="/tanya" className="text-yellow-400 font-bold">Tanya AI</a>
+          <a href="/tentang" className="hover:text-yellow-400">Tentang</a>
         </div>
       </nav>
       <div className="max-w-3xl mx-auto px-6 py-16">
@@ -57,7 +58,10 @@ export default function TanyaAI() {
           <div className="mt-8 bg-slate-900 rounded-2xl p-6 border border-slate-800">
             <div className="flex justify-between items-center mb-4">
               <h2 className="font-bold text-yellow-400">Jawaban AI:</h2>
-              <button onClick={() => navigator.clipboard.writeText(jawaban)} className="text-xs bg-slate-700 hover:bg-yellow-400 hover:text-slate-950 px-3 py-1 rounded-full transition">Copy Jawaban</button>
+              <div className="flex gap-2">
+                <button onClick={() => navigator.clipboard.writeText(jawaban)} className="text-xs bg-slate-700 hover:bg-yellow-400 hover:text-slate-950 px-3 py-1 rounded-full transition">Copy Jawaban</button>
+                <button onClick={() => window.open("https://wa.me/?text=" + encodeURIComponent(jawaban))} className="text-xs bg-green-600 hover:bg-green-500 text-white px-3 py-1 rounded-full transition">Bagikan WA</button>
+              </div>
             </div>
             <p className="text-slate-300 whitespace-pre-wrap leading-relaxed">{jawaban}</p>
           </div>
